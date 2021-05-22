@@ -188,7 +188,7 @@ def ensure_user_environment(user_requirements_txt_file):
         installer_url = "https://repo.continuum.io/miniconda/Miniconda3-{}-Linux-x86_64.sh".format(miniconda_new_version)
         # with conda.download_miniconda_installer(installer_url, miniconda_installer_sha256) as installer_path:
         #     conda.install_miniconda(installer_path, USER_ENV_PREFIX)
-        with conda.download_miniconda_installer(miniconda_version, miniconda_installer_md5) as installer_path:
+        with conda.download_miniconda_installer(conda_version, miniconda_installer_md5) as installer_path:
             conda.install_miniconda(installer_path, USER_ENV_PREFIX)
 
         conda_version = '4.5.4'
