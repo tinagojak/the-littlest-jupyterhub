@@ -171,20 +171,26 @@ def ensure_user_environment(user_requirements_txt_file):
     logger.info("Setting up user environment...")
 
     miniconda_old_version = '4.5.4'
-    miniconda_new_version = '4.5.4'
+    miniconda_new_version = '4.7.10'
     miniconda_installer_sha256 = "8a324adcc9eaf1c09e22a992bb6234d91a94146840ee6b11c114ecadafc68121"
+    miniconda_installer_md5 = "a946ea1d0c4a642ddf0c3a26a18bb16d"
 
     if conda.check_miniconda_version(USER_ENV_PREFIX, miniconda_new_version):
+        logger.info('Conda exists - version 4.5.4')
         conda_version = '4.5.4'
     elif conda.check_miniconda_version(USER_ENV_PREFIX, miniconda_old_version):
+        logger.info('Conda exists - version 4.7.10')
         conda_version = '4.5.4'
     # If no prior miniconda installation is found, we can install a newer version
     else:
         logger.info('Downloading & setting up user environment...')
         # FIXME: allow using miniforge
         installer_url = "https://repo.continuum.io/miniconda/Miniconda3-{}-Linux-x86_64.sh".format(miniconda_new_version)
-        with conda.download_miniconda_installer(installer_url, miniconda_installer_sha256) as installer_path:
+        # with conda.download_miniconda_installer(installer_url, miniconda_installer_sha256) as installer_path:
+        #     conda.install_miniconda(installer_path, USER_ENV_PREFIX)
+        with conda.download_miniconda_installer(miniconda_version, miniconda_installer_md5) as installer_path:
             conda.install_miniconda(installer_path, USER_ENV_PREFIX)
+
         conda_version = '4.5.4'
 
     conda.ensure_conda_packages(USER_ENV_PREFIX, [
