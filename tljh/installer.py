@@ -131,17 +131,14 @@ def ensure_jupyterhub_package(prefix):
     conda.ensure_pip_packages(
         prefix,
         [
-            "jupyterhub==1.4.0",
+            "jupyterhub==1.0.0",
             "jupyterhub-dummyauthenticator==0.3.1",
-            "jupyterhub-systemdspawner==0.15",
-            "jupyterhub-firstuseauthenticator==0.14.1",
-            "jupyterhub-nativeauthenticator==0.0.7",
-            "jupyterhub-ldapauthenticator==1.3.0",
+            "jupyterhub-systemdspawner==0.13",
+            "jupyterhub-firstuseauthenticator==0.12",
+            "jupyterhub-nativeauthenticator==0.0.4",
+            "jupyterhub-ldapauthenticator==1.2.2",
             "jupyterhub-tmpauthenticator==0.6",
-            "oauthenticator==0.10.0",
-            "jupyterhub-idle-culler==1.0",
-            "chardet==3.0.4",
-            "git+https://github.com/yuvipanda/jupyterhub-configurator@317759e17c8e48de1b1352b836dac2a230536dba"
+            "oauthenticator==0.8.2",
         ],
     )
     traefik.ensure_traefik_binary(prefix)
