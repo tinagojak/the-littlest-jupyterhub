@@ -30,7 +30,7 @@ html = """
   <meta http-equiv="refresh" content="30" >
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width">
-  <img class="logo" src="https://raw.githubusercontent.com/jupyterhub/the-littlest-jupyterhub/master/docs/images/logo/logo.png">
+  <img class="logo" src="https://raw.githubusercontent.com/tinagojak/the-littlest-jupyterhub/master/docs/images/logo/logo.png">
   <div class="loader center"></div>
   <div class="center main-msg">Please wait while your TLJH is building...</div>
   <div class="center logs-msg">Click the button below to see the logs</div>
@@ -292,7 +292,7 @@ def main():
         pip_flags.append('--editable')
     tljh_repo_path = os.environ.get(
         'TLJH_BOOTSTRAP_PIP_SPEC',
-        'git+https://github.com/jupyterhub/the-littlest-jupyterhub.git'
+        'git+https://github.com/tinagojak/the-littlest-jupyterhub.git'
     )
 
     # Upgrade pip
